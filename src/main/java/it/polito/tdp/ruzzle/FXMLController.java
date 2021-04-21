@@ -92,6 +92,8 @@ public class FXMLController {
     @FXML
     void handleProva(ActionEvent event) {
     	
+    	txtResult.clear();
+    	
     	//refresh interfaccia grafica
     	for(Button b : letters.values()) {
     		b.setDefaultButton(false);
@@ -109,6 +111,11 @@ public class FXMLController {
     		return ;
     	}
     	
+    	if (!model.getDizionario().contains(parola.toLowerCase())) {
+    		txtResult.setText("Parola non valida");
+    		return;
+    	}
+    	
     	List<Pos> percorso = model.trovaParola(parola);
     	
     	if(percorso != null) {
@@ -124,6 +131,10 @@ public class FXMLController {
     @FXML
     void handleReset(ActionEvent event) {
     	model.reset();
+    	txtResult.clear();
+    	for (Button b : letters.values()) {
+    		b.setDefaultButton(false);
+    	}
     }
     
     @FXML

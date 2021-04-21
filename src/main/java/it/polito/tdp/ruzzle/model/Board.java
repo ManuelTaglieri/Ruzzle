@@ -15,7 +15,7 @@ import javafx.beans.property.StringProperty;
  */
 public class Board {
 	private List<Pos> positions;
-	private Map<Pos, StringProperty> cells;
+	private Map<Pos, StringProperty> cells; //La string property permette di collegare ogni bottone a una stringa in automatico
 
 	private int size;
 
